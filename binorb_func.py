@@ -29,6 +29,12 @@ def load_dat_file(f):
     df_dat=pd.DataFrame(dat,columns=['x(m)','y(m)','z(m)','vx(ms^-1)','vy(ms^-1)','vz(ms^-1)','m(kg)','r(m)'])
     return t,df_dat
 #-------------------------------------------------------------------------------
+def read_dat_file_time(dat_file):
+    ''' Read only the first line of a dat file, the time stamp '''
+    with open(dat_file) as f:
+        first_line = f.readline().strip()
+    return float(first_line)
+#-------------------------------------------------------------------------------
 def file_list_no_restart(files):
     ''' take a list of files dat0000000_0.txt, dat0000001_0.txt, dat0000001_1.txt, ...
     and account for an restarts
